@@ -1,0 +1,574 @@
+{% extends 'base-index.html' %}
+
+{% block title %}
+About Us - MaarifaEdu
+{% endblock %}
+
+
+{% block content %}
+<div class="main">
+
+    <section class="hero-section ptb-100 gradient-overlay"
+             style="background: url('../static/frontend/img/success_stories.jpg')no-repeat center center / cover">
+        <div class="hero-bottom-shape-two" style="background: url('../static/frontend/img/hero-bottom-shape.svg')no-repeat bottom center"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-7">
+                    <div class="page-header-content text-white text-center pt-sm-5 pt-md-5 pt-lg-0">
+                        <h1 class="text-white mb-0">About Us</h1>
+                        <div class="custom-breadcrumb">
+                            <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
+                                <li class="list-inline-item breadcrumb-item"><a href="{{url_for('frontend.index')}}">Home</a></li>
+                                <li class="list-inline-item breadcrumb-item active">About Us</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="promo-block ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="core-services-single rounded p-5 my-md-3 my-lg-3 my-sm-0 shadow-lg">
+                        <img src="{{url_for('static', filename='frontend/img/promo-img-1.svg')}}" alt="promo"
+                             class="mb-3" width="100">
+                        <h5>MaarifaEdu for Students.</h5>
+                        <ul class="list-unstyled tech-feature-list">
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Personalized
+                                Learning.</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Interactive
+                                Content.</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Progress
+                                Tracking.</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Offline
+                                Access.</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Feedback and
+                                Assessment.</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Notifications
+                                (upcoming assignments, deadlines, or new content releases).</strong></li>
+                        </ul>
+                        <a href="javascript:void(0);" class="icon-link accent-bg"><span
+                                class="ti-angle-double-right"></span></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="core-services-single rounded p-5 my-md-3 my-lg-3 my-sm-0 shadow-lg">
+                        <img src="{{url_for('static', filename='frontend/img/promo-img-2.svg')}}" alt="promo"
+                             class="mb-3" width="100">
+                        <h5>MaarifaEdu for Parents.</h5>
+                        <ul class="list-unstyled tech-feature-list">
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Student
+                                Profiles.</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Progress
+                                Tracking (Reports, Grade Analytics).</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Assignment
+                                and Homework Notifications.</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Learning
+                                Tips.</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Resource
+                                Library.</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Communication.</strong>
+                            </li>
+
+                        </ul>
+                        <a href="javascript:void(0);" class="icon-link accent-bg"><span
+                                class="ti-angle-double-right"></span></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="core-services-single rounded p-5 my-md-3 my-lg-3 my-sm-0 shadow-lg">
+                        <img src="{{url_for('static', filename='frontend/img/promo-img-3.svg')}}" alt="promo"
+                             class="mb-3" width="100">
+                        <h5>MaarifaEdu for Admin.</h5>
+                        <ul class="list-unstyled tech-feature-list">
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Student
+                                Information Management</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Class &
+                                Course Management.</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Teacher &
+                                Staff Management.</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Attendance &
+                                Grade Tracking.</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Communication
+                                and Announcements.</strong></li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Resource
+                                Management.</strong></li>
+                        </ul>
+                        <a href="javascript:void(0);" class="icon-link accent-bg"><span
+                                class="ti-angle-double-right"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-us-section ptb-100" id="features">
+        <div class="container">
+            <div class="row justify-content-around align-items-center">
+                <div class="col-md-12 col-lg-5">
+                    <div class="about-content-right mb-md-4 mb-lg-0">
+                        <h2>World Class Services To Grow</h2>
+                        <p>MaarifaEdu is an innovative edtech app specifically designed for learning institutions,
+                            such as schools, colleges, and universities, to enhance the teaching and learning
+                            experience. The app aims to bridge the gap between traditional education and modern
+                            technological advancements, providing a comprehensive platform for educators, students, and
+                            administrators to collaborate, engage, and excel.</p>
+                        <ul class="list-unstyled tech-feature-list">
+                            <li class="py-1"><span
+                                    class="ti-check-box mr-2 color-secondary"></span><strong>Assessment and Analytics
+                                - </strong> The app offers robust assessment tools for educators to design assessments,
+                                quizzes, and exams. It also provides detailed analytics on student performance, allowing
+                                educators to identify areas of improvement.
+                            </li>
+                            <li class="py-1"><span
+                                    class="ti-check-box mr-2 color-secondary"></span><strong>Interactive Content
+                                Creation - </strong>
+                                Teachers can create interactive and engaging learning content, including videos,
+                                quizzes, simulations, and assignments, using the app's intuitive content creation tools.
+                            </li>
+                            <li class="py-1"><span class="ti-check-box mr-2 color-secondary"></span><strong>Virtual
+                                Classrooms - </strong>
+                                MaarifaEdu provides a virtual classroom environment where teachers can conduct live
+                                lectures, online tutorials, and interactive sessions, complete with video conferencing,
+                                screen sharing, and whiteboarding tools.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="single-promo-block p-4 text-center rounded border my-md-3 my-lg-3 my-sm-0">
+                                <div class="promo-block-icon mb-3">
+                                    <span class="fas fa-lightbulb icon-md accent-color"></span>
+                                </div>
+                                <div class="promo-block-content">
+                                    <h5>Resource Library</h5>
+                                    <p>A centralized repository for educational resources, including e-books, research
+                                        papers, educational videos, and study materials, accessible to both educators
+                                        and students.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="single-promo-block p-4 text-center rounded border my-md-3 my-lg-3 my-sm-0">
+                                <div class="promo-block-icon mb-3">
+                                    <span class="fas fa-bezier-curve icon-md accent-color"></span>
+                                </div>
+                                <div class="promo-block-content">
+                                    <h5>Administrative Tools</h5>
+                                    <p>Administrators can manage student enrollment, course scheduling, faculty
+                                        assignments, and other administrative tasks through the app's dedicated
+                                        administrative dashboard.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="single-promo-block p-4 text-center rounded border my-md-3 my-lg-3 my-sm-0">
+                                <div class="promo-block-icon mb-3">
+                                    <span class="fas fa-life-ring icon-md accent-color"></span>
+                                </div>
+                                <div class="promo-block-content">
+                                    <h5>Parent-Teacher Communication</h5>
+                                    <p>The app enables seamless communication between parents and teachers, allowing
+                                        them to stay informed about student progress, attendance, and upcoming
+                                        events. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-6">
+                            <div class="single-promo-block p-4 text-center rounded border my-md-3 my-lg-3 my-sm-0">
+                                <div class="promo-block-icon mb-3">
+                                    <span class="fas fa-brain icon-md accent-color"></span>
+                                </div>
+                                <div class="promo-block-content">
+                                    <h5>Integration and Compatibility</h5>
+                                    <p>The app is designed to integrate with existing Learning Management Systems (LMS)
+                                        ensuring a seamless experience within the
+                                        institution's existing technological infrastructure.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="work-process-new ptb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-9 col-lg-8">
+                    <div class="section-heading text-center mb-5">
+                        <h2>Our Work Process</h2>
+                        <p class="lead">The work process of an educational technology (edtech) app involves several
+                            stages, from concept development to deployment and ongoing improvement. Here's an
+                            overview of our work process:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="work-process-wrap text-center">
+                        <div class="single-work-process">
+                            <div class="work-process-icon-wrap secondary-bg rounded">
+                                <i class="ti-vector icon-md text-white"></i>
+                                <span class="process-step white-bg color-primary shadow-sm">1</span>
+                            </div>
+                            <span class="work-process-divider"></span>
+                            <div class="work-process-content mt-4">
+                                <h5>Piloting</h5>
+                                <p>We carry out user acceptance testing (UAT) with a small group of users to gather
+                                    feedback that all features work as intended and make improvements.</p>
+                            </div>
+                        </div>
+                        <div class="single-work-process">
+                            <div class="work-process-icon-wrap secondary-bg rounded">
+                                <i class="ti-layout-list-thumb icon-md text-white"></i>
+                                <span class="process-step white-bg color-primary shadow-sm">2</span>
+                            </div>
+                            <span class="work-process-divider"></span>
+                            <div class="work-process-content mt-4">
+                                <h5>Content Creation</h5>
+                                <p>We develop or curate the necessary materials, such as courses, videos, quizzes, or
+                                    interactive lessons. </p>
+                            </div>
+                        </div>
+                        <div class="single-work-process">
+                            <div class="work-process-icon-wrap secondary-bg rounded">
+                                <i class="ti-cup icon-md text-white"></i>
+                                <span class="process-step white-bg color-primary shadow-sm">3</span>
+                            </div>
+                            <span class="work-process-divider"></span>
+                            <div class="work-process-content mt-4">
+                                <h5>Launch</h5>
+                                <p>We Launch the app and monitor its initial reception and user engagement.</p>
+                            </div>
+                        </div>
+                        <div class="single-work-process">
+                            <div class="work-process-icon-wrap secondary-bg rounded">
+                                <i class="ti-palette icon-md text-white"></i>
+                                <span class="process-step white-bg color-primary shadow-sm">4</span>
+                            </div>
+                            <span class="work-process-divider"></span>
+                            <div class="work-process-content mt-4">
+                                <h5>User Feedback & Iteration</h5>
+                                <p>Continuously iterate on the app based on user feedback and changing educational
+                                    needs. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="promo-section gradient-overlay ptb-100"
+             style="background: url('../static/frontend/img/success_stories.jpg')no-repeat center center / cover fixed">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="app-business-content text-center text-white">
+                        <h2 class="text-white">Download the MaarifaEdu App</h2>
+                        <p class="lead">The MaarifaEdu app is available for both Android and IOS users. You can download
+                            the app files below or download from respective google play store and app store.</p>
+
+                        <div class="action-btns mt-5">
+                            <ul class="list-inline app-download-list">
+                                <li class="list-inline-item">
+                                    <a href="javascript:void(0);" class="d-flex align-items-center border rounded">
+                                        <span class="fab fa-apple icon-sm mr-3"></span>
+                                        <div class="download-text text-left">
+                                            <span>Download from</span>
+                                            <h5 class="mb-0">App Store</h5>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="javascript:void(0);" class="d-flex align-items-center border rounded">
+                                        <span class="fab fa-google-play icon-sm mr-3"></span>
+                                        <div class="download-text text-left">
+                                            <span>Download from</span>
+                                            <h5 class="mb-0">Google Play</h5>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-two-section ptb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-8">
+                    <div class="section-heading text-center mb-5">
+                        <h2>Meet our lovely team</h2>
+                        <p class="lead">Distinctively grow go forward manufactured products and optimal networks. Globally administrate 24/7 interfaces and end-to-end platforms.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="staff-member">
+                        <div class="card gray-light-bg text-center border-0">
+                            <img src="{{url_for('static', filename='frontend/img/silas.jpg')}}" alt="team image" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="teacher mb-0">Silas Rapela</h5>
+                                <span>C.E.O Maarifa Edu</span>
+                                <ul class="list-inline pt-2 social">
+                                    <li class="list-inline-item"><a href="" target="_blank"><span
+                                            class="ti-linkedin"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="overlay d-flex align-items-center justify-content-center">
+                            <div class="overlay-inner">
+                                <p class="teacher-quote">"" </p><a
+                                    href="" class="teacher-name">
+                                <h5 class="mb-0 teacher text-white">Silas Rapela</h5></a><span class="teacher-field text-white">C.E.O Maarifa Edu</span>
+                                <ul class="list-inline py-4 social">
+                                    <li class="list-inline-item"><a href="" target="_blank"><span
+                                            class="ti-linkedin"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="staff-member">
+                        <div class="card gray-light-bg text-center border-0">
+                            <img src="{{url_for('static', filename='frontend/img/felix.jpeg')}}" alt="team image" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="teacher mb-0">Felix Okoth</h5>
+                                <span>C.T.O Maarifa Edu</span>
+                                <ul class="list-inline pt-2 social">
+                                    <li class="list-inline-item"><a href="" target="_blank"><span
+                                            class="ti-linkedin"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="overlay d-flex align-items-center justify-content-center">
+                            <div class="overlay-inner">
+                                <p class="teacher-quote">"" </p><a
+                                    href="" class="teacher-name">
+                                <h5 class="mb-0 teacher text-white">Felix Okoth</h5></a>
+                                <span class="teacher-field text-white">C.T.O Maarifa Edu</span>
+                                <ul class="list-inline py-4 social">
+                                    <li class="list-inline-item"><a href="" target="_blank"><span
+                                            class="ti-linkedin"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="staff-member">
+                        <div class="card gray-light-bg text-center border-0">
+                            <img src="{{url_for('static', filename='frontend/img/lucy.jpeg')}}" width="400" height="450" alt="team image" class="img-fluid">
+                            <div class="card-body">
+                                <h5 class="teacher mb-0">Lucy Vilita Lumumba</h5>
+                                <span>Lead Marketing</span>
+                                <ul class="list-inline pt-2 social">
+                                    <li class="list-inline-item"><a href="" target="_blank"><span
+                                            class="ti-linkedin"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="overlay d-flex align-items-center justify-content-center">
+                            <div class="overlay-inner">
+                                <p class="teacher-quote">"" </p><a
+                                    href="#" class="teacher-name">
+                                <h5 class="mb-0 teacher text-white">Lucy Vilita Lumumba</h5></a>
+                                <span class="teacher-field text-white">Lead Marketing</span>
+                                <ul class="list-inline py-4 social">
+                                    <li class="list-inline-item"><a href="" target="_blank"><span
+                                            class="ti-linkedin"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="customer-testimonial-section ptb-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-8">
+                    <div class="section-heading text-center mb-4">
+                        <h2>Testimonials From clients</h2>
+                        <p class="lead">Here are a few testimonials that people provide about MaarifaEdu App.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-5 col-lg-5">
+                    <div class="owl-carousel owl-theme client-testimonial-1 custom-dot">
+                        <div class="item">
+                            <div class="testimonial-quote-wrap">
+                                <div class="client-say">
+                                    <p><span class="fas fa-quote-left"></span>Juggling multiple subjects in college can
+                                        be overwhelming, but this app has revolutionized the way I study. Its
+                                        customizable flashcards, practice quizzes, and study reminders keep me on track.
+                                    </p>
+                                </div>
+                                <div class="media author-info my-3">
+                                    <div class="author-img mr-3">
+                                        <img src="img/client-1.jpg" alt="" class="img-fluid rounded-circle">
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="mb-0">John Charles</h5>
+                                        <span>Student</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonial-quote-wrap">
+                                <div class="client-say">
+                                    <p><span class="fas fa-quote-left"></span> As a parent, I'm always looking for ways
+                                        to support my child's learning journey. Not only
+                                        does it make learning fun with interactive games
+                                        and challenges, but it also provides detailed progress reports. I can track my
+                                        child's
+                                        improvement and focus on areas that need more attention. It's like having a
+                                        personal tutor right at our fingertips.</p>
+                                </div>
+                                <div class="media author-info my-3">
+                                    <div class="author-img mr-3">
+                                        <img src="img/client-2.jpg" alt="" class="img-fluid rounded-circle">
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="mb-0">Jack</h5>
+                                        <span>Parent</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonial-quote-wrap">
+                                <div class="client-say">
+                                    <p><span class="fas fa-quote-left"></span> Overall, the MaarifaEdu app has not only enhanced the quality of education we offer but has also streamlined administrative tasks, freeing up valuable time for our educators.</p>
+                                </div>
+                                <div class="media author-info my-3">
+                                    <div class="author-img mr-3">
+                                        <img src="img/client-3.jpg" alt="" class="img-fluid rounded-circle">
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="mb-0">Silas</h5>
+                                        <span>Administrator</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="single-counter shadow-sm p-4 rounded text-center border">
+                                <span class="ti-medall-alt accent-color icon-md"></span>
+                                <h3 class="mb-0">1600</h3>
+                                <p>Active users</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-counter shadow-sm p-4 rounded text-center border">
+                                <span class="ti-headphone-alt accent-color icon-md"></span>
+                                <h3 class="mb-0">2500</h3>
+                                <p>Global client</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-counter shadow-sm p-4 rounded text-center border">
+                                <span class="ti-cup accent-color icon-md"></span>
+                                <h3 class="mb-0">2150</h3>
+                                <p>Win award</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="single-counter shadow-sm p-4 rounded text-center border">
+                                <span class="ti-user accent-color icon-md"></span>
+                                <h3 class="mb-0">2150</h3>
+                                <p>Clients satisfaction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="client-section ptb-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme clients-carousel dot-indicator">
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/ku-logo.png')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/saf-logo.png')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/at-logo.png')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/zetech-uni.jpg')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/uzima-uni.jpeg')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/ku-logo.png')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/tknp-logo.jpeg')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/laikipia-uni.jpeg')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/mku-logo.jpg')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/zetech-uni.jpg')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/uzima-uni.jpeg')}}" alt="client logo"
+                                class="client-img"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="call-to-action py-5">
+        <div class="container">
+            <div class="row justify-content-around align-items-center">
+                <div class="col-md-7">
+                    <div class="subscribe-content">
+                        <h3 class="mb-1">Schedule a Pilot?</h3>
+                        <p>We transform education technology with powerful and adaptable digital solutions that are
+                            reliable, scalable and secure. Schedule a Demonstration for your institution now.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="action-btn text-lg-right text-sm-left">
+                        <a href="../contacts" class="btn secondary-solid-btn">Go For It</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
