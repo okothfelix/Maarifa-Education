@@ -1,9 +1,10 @@
 from flask import render_template, request, session, redirect, url_for
-import decorators
 import generators
 from . import frontend_bp
 import decorators
 import web_frontend
+import secrets
+import cbc
 
 
 @frontend_bp.route('/', methods=['POST', 'GET'])
@@ -82,9 +83,61 @@ def account_activation():
 @decorators.handle_errors
 def login():
     if request.method == 'POST':
-        pass
+        username = request.form['username']
+        password = request.form['password']
+
+        result_set = cbc.user_login_section(username, password)
+        if result_set:
+            session['maarifa_education_id'] = maarifa_education_id = secrets.token_hex(10)
+            sub_set = generators.session_update_section(maarifa_education_id, username, 1)
+            if sub_set is None:
+                return redirect(url_for('error_log'))
+            session['logged_in'] = True
+            return redirect(url_for('dashboard'))
+        elif result_set[0] is False:
+            session['register-flag'] = True
+            return redirect(url_for('login'))
+        return redirect(url_for('error_log'))
     else:
-        return render_template('frontend/login.html')
+        register_flag = False
+        if 'register-flag' in session:
+            register_flag = True
+        return render_template('login.html', register_flag=register_flag)
+
+
+@frontend_bp.route('/password-recovery', methods=['POST'])
+@decorators.handle_errors
+def forgot_password():
+    data = request.get_json()
+    email = data.get('email')
+    result_set = web_frontend.user_forgot_password_section(email)
+    if result_set:
+        return render_template('account-activation.html')
+    return redirect(url_for('error_log'))
+
+
+@frontend_bp.route('/update-password/<activation_code>', methods=['GET', 'POST'])
+@decorators.handle_errors
+def password_update(activation_code):
+    cur_user = generators.cur_user_details(session['maarifa_education_id'])
+    if request.method == "POST":
+        new_password = request.form['new-password']
+        confirm_password = request.form['confirm-password']
+        if new_password != confirm_password:
+            return redirect(url_for('password_update', activation_code=activation_code))
+
+        result_set = web_frontend.password_update_section(activation_code, confirm_password)
+        session['maarifa_education_id'] = maarifa_education_id = secrets.token_hex(10)
+        sub_set = generators.session_update_section(maarifa_education_id, cur_user[1], result_set)
+        if sub_set is not None:
+            session['logged_in'] = True
+            if result_set == 0:
+                return redirect(url_for('users.user_dashboard'))
+    else:
+        result_set = web_frontend.activation_code_checker(activation_code)
+        if result_set:
+            return render_template('password-update.html')
+    return redirect(url_for('error_log'))
 
 
 @frontend_bp.route('/error', methods=['GET'])
