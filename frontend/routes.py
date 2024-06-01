@@ -1,6 +1,6 @@
 from flask import render_template, request, session, redirect, url_for
 from . import frontend_bp
-import decorators
+# import decorators
 import web_frontend
 
 
@@ -12,29 +12,29 @@ def index():
 
 
 @frontend_bp.route('/about', methods=['GET'])
-@decorators.user_login_checker
-@decorators.handle_errors
+# @decorators.user_login_checker
+# @decorators.handle_errors
 def about():
     return render_template('about.html')
 
 
 @frontend_bp.route('/analytics', methods=['GET'])
-@decorators.user_login_checker
-@decorators.handle_errors
+# @decorators.user_login_checker
+# @decorators.handle_errors
 def analytics():
     return render_template('analytics.html')
 
 
 @frontend_bp.route('/learning', methods=['GET'])
-@decorators.user_login_checker
-@decorators.handle_errors
+# @decorators.user_login_checker
+# @decorators.handle_errors
 def learning():
     return render_template('learning.html')
 
 
 @frontend_bp.route('/contacts', methods=['POST', 'GET'])
-@decorators.user_login_checker
-@decorators.handle_errors
+# @decorators.user_login_checker
+# @decorators.handle_errors
 def contact():
     if request.method == "POST":
         name = request.form['name']
@@ -50,6 +50,16 @@ def contact():
             contact_flag = True
             session.pop('contact-flag')
         return render_template('contacts.html', contact_flag=contact_flag)
+
+
+@frontend_bp.route('/login', methods=['POST', 'GET'])
+# @decorators.user_login_checker
+# @decorators.handle_errors
+def login():
+    if request.method == 'POST':
+        pass
+    else:
+        return render_template('login.html')
 
 
 @frontend_bp.route('/error', methods=['GET'])
