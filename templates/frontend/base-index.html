@@ -16,7 +16,7 @@
     <meta property="og:image" content="{{url_for('static', filename='frontend/img/hero-single-img-3.svg')}}"/>
     <meta property="og:url" content="https://maarifaedu.co.ke"/>
     <meta property="og:type" content="article"/>
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %} - MaarifaEdu</title>
     <link rel="icon" href="{{url_for('static', filename='frontend/img/maarifa-edu.png')}}" type="image/png" sizes="16x16">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7COpen+Sans:400,600&display=swap"
           rel="stylesheet">
@@ -62,8 +62,8 @@
                     <li><a href="{{url_for('frontend.analytics')}}">Analytics</a></li>
                     <li><a href="{{url_for('frontend.learning')}}">Learning</a></li>
                     <li><a href="{{url_for('frontend.contact')}}">Talk To Us</a></li>
-                    <li><a href="javascript:void(0);">Shop</a></li>
-                    <li><a href="javascript:void(0);">Login</a></li>
+                    <li><a href="{{url_for('marketplace.shop')}}">Shop</a></li>
+                    <li><a href="{{url_for('frontend.login')}}">Login</a></li>
                 </ul>
             </div>
         </div>

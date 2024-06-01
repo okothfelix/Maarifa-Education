@@ -1,8 +1,6 @@
 {% extends 'base-index.html' %}
 
-{% block title %}
-About Us - MaarifaEdu
-{% endblock %}
+{% block title %}About Us{% endblock %}
 
 
 {% block content %}
@@ -468,7 +466,7 @@ About Us - MaarifaEdu
                 </div>
                 <div class="col-md-4">
                     <div class="action-btn text-lg-right text-sm-left">
-                        <a href="../contacts" class="btn secondary-solid-btn">Go For It</a>
+                        <a href="{{url_for('frontend.contact')}}" class="btn secondary-solid-btn">Go For It</a>
                     </div>
                 </div>
             </div>
