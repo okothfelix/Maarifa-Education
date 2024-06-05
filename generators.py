@@ -35,6 +35,28 @@ def connect_to_mysql():
     return conn
 
 
+def execute_sql(statement, result_flag=False, commit_flag=False):
+    conn = connect_to_mysql()
+    c = conn.cursor()
+    try:
+        c.execute(statement)
+    except Exception as e:
+        conn.close()
+        if str(e)[:str(e).find(" ")] == "1146":
+            return None, e
+        else:
+            print(e)
+            return None, e
+    if result_flag:
+        result_set = c.fetchall()
+        conn.close()
+        return None, result_set
+    if commit_flag:
+        conn.commit()
+        conn.close()
+        return True
+
+
 def update_dict_section(orig_dict, new_dict):
     for key, val in new_dict.items():
         if isinstance(val, abc.Mapping):

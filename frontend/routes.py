@@ -65,8 +65,14 @@ def register():
         password = request.form['password']
         confirm_password = request.form['confirm-password']
         number = generators.phone_num_checker(request.form['number'])
-        web_frontend.user_registration(username, email, password, confirm_password, number)
-        return redirect(url_for('frontend.account_activation'))
+        if password != confirm_password:
+            return redirect(url_for('error_log'))
+        result_set = web_frontend.user_registration(username, email, password, number)
+        if result_set:
+            return redirect(url_for('frontend.account_activation'))
+        elif result_set is False:
+            return redirect(url_for('frontend.register'))
+        return redirect(url_for('frontend.error_log'))
     else:
         return render_template('frontend/register.html')
 
