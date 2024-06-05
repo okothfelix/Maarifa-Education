@@ -1,6 +1,6 @@
 from . import marketplace_bp
 import decorators
-import web_frontend
+import marketplace_backend
 from flask import render_template, jsonify, request, redirect, url_for, session
 import generators
 
@@ -9,23 +9,30 @@ import generators
 @decorators.user_login_checker
 @decorators.handle_errors
 def shop():
-    catalogue = web_frontend.catalogue_generator()
-    today_deals = web_frontend.today_deals()
-    return render_template('shop.html', catalogue=catalogue, today_deal=today_deals)
+    catalogue = marketplace_backend.catalogue_generator()
+    today_deals = marketplace_backend.today_deals()
+    return render_template('marketplace/shop.html', catalogue=catalogue, today_deal=today_deals)
 
 
 @marketplace_bp.route('/modal-product-details/<product_id>', methods=['GET'])
 def modal_product_details(product_id):
-    result_set = web_frontend.modal_product_details(product_id)
+    result_set = marketplace_backend.modal_product_details(product_id)
     return jsonify(result_set)
+
+
+@marketplace_bp.route('/product-details/', methods=['GET'])
+@decorators.user_login_checker
+@decorators.handle_errors
+def product_details():
+    return render_template('marketplace/product-details.html')
 
 
 @marketplace_bp.route('/cart', methods=['GET'])
 @decorators.user_login_checker
 @decorators.handle_errors
 def cart():
-    catalogue = web_frontend.catalogue_generator()
-    return render_template('cart.html', catalogue=catalogue, back=request.referrer)
+    catalogue = marketplace_backend.catalogue_generator()
+    return render_template('marketplace/cart.html', catalogue=catalogue, back=request.referrer)
 
 
 @marketplace_bp.route('/checkout', methods=['GET', 'POST'])
@@ -54,7 +61,7 @@ def checkout():
         if 'affiliate-id' in session:
             affiliate_id = session['affiliate-id']
 
-        result_set = web_frontend.user_checkout_section(affiliate_id, first_name, last_name, phone_number,
+        result_set = marketplace_backend.user_checkout_section(affiliate_id, first_name, last_name, phone_number,
                                                         street_address, building, town, state, order_notes,
                                                         gift_message, orders_details, payment_method,
                                                         payment_status, amount, payment_number, products_ordered)
@@ -63,21 +70,21 @@ def checkout():
             return redirect(url_for('error_log'))
         return redirect(url_for('order_success'))
     else:
-        catalogue = web_frontend.catalogue_generator()
-        return render_template('checkout.html', catalogue=catalogue)
+        catalogue = marketplace_backend.catalogue_generator()
+        return render_template('marketplace/checkout.html', catalogue=catalogue)
 
 
 @marketplace_bp.route('/order-success/<order_id>', methods=['GET'])
 @decorators.user_login_checker
 @decorators.handle_errors
 def order_success(order_id):
-    catalogue = web_frontend.catalogue_generator()
-    result_set = web_frontend.order_success(order_id)
-    return render_template('order-success.html', catalogue=catalogue, orders=result_set)
+    catalogue = marketplace_backend.catalogue_generator()
+    result_set = marketplace_backend.order_success(order_id)
+    return render_template('marketplace/order-success.html', catalogue=catalogue, orders=result_set)
 
 
 @marketplace_bp.route('/order-tracking/<tracking_code>', methods=['GET'])
 @decorators.user_login_checker
 @decorators.handle_errors
 def order_tracking(tracking_code):
-    return render_template('track-order.html', tracking_code=tracking_code)
+    return render_template('marketplace/track-order.html', tracking_code=tracking_code)

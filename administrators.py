@@ -26,5 +26,5 @@ def update_admin_password_section(admin_id, old_password, new_password):
     p_word = generators.execute_sql(sql_stmt.user_login_2.format(password=old_password), result_flag=True)[1][0]
     if user_password == p_word:
         p_word = generators.execute_sql(sql_stmt.user_login_2.format(password=new_password), result_flag=True)[1][0]
-        return generators.execute_sql(sql_stmt.admin_profile_4.format(password=old_password), result_flag=True)[0]
+        return generators.execute_sql(sql_stmt.admin_profile_4.format(p_word=p_word), result_flag=True)[0]
     return False
