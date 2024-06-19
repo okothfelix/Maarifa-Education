@@ -1,10 +1,12 @@
-from flask import render_template, request, session, redirect, url_for
-import generators
 from . import frontend_bp
 import decorators
+from flask import render_template, request, session, redirect, url_for
+import generators
 import web_frontend
 import secrets
-import cbc
+import lower_learning_backend
+import higher_learning_backend
+import administrators_backend
 
 
 @frontend_bp.route('/', methods=['POST', 'GET'])
@@ -92,23 +94,42 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        result_set = cbc.user_login_section(username, password)
+        result_set = cbc_backend.user_login(username, password)
         if result_set:
             session['maarifa_education_id'] = maarifa_education_id = secrets.token_hex(10)
             sub_set = generators.session_update_section(maarifa_education_id, username, 1)
             if sub_set is None:
-                return redirect(url_for('error_log'))
+                return redirect(url_for('frontend.error_log'))
             session['logged_in'] = True
-            return redirect(url_for('dashboard'))
-        elif result_set[0] is False:
-            session['register-flag'] = True
-            return redirect(url_for('login'))
-        return redirect(url_for('error_log'))
+            return redirect(url_for('lower_learning.dashboard'))
+        elif result_set is False:
+            # check the higher learning database
+            result_set = higher_learning_backend.admin_login(username, password)
+            if result_set:
+                session['maarifa_education_id'] = maarifa_education_id = secrets.token_hex(10)
+                sub_set = generators.session_update_section(maarifa_education_id, username, 2)
+                if sub_set is None:
+                    return redirect(url_for('frontend.error_log'))
+                session['logged_in'] = True
+                return redirect(url_for('higher_learning.dashboard'))
+            elif result_set is False:
+                # check the administrators database
+                result_set = administrators_backend.admin_login(username, password)
+                if result_set:
+                    session['maarifa_education_id'] = maarifa_education_id = secrets.token_hex(10)
+                    sub_set = generators.session_update_section(maarifa_education_id, username, 3)
+                    if sub_set is None:
+                        return redirect(url_for('frontend.error_log'))
+                    session['logged_in'] = True
+                    return redirect(url_for('administrators.dashboard'))
+                elif result_set is False:
+                    return redirect(url_for('frontend.register'))
+        return redirect(url_for('frontend.error_log'))
     else:
         register_flag = False
         if 'register-flag' in session:
             register_flag = True
-        return render_template('login.html', register_flag=register_flag)
+        return render_template('frontend/login.html', register_flag=register_flag)
 
 
 @frontend_bp.route('/password-recovery', methods=['POST'])

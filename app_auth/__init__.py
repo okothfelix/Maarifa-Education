@@ -1,5 +1,5 @@
 from flask import Blueprint
 
-cbc_bp = Blueprint('lower_learning', __name__)
+app_auth_bp = Blueprint('app_auth', __name__)
 
 from . import routes

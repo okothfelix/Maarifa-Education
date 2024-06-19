@@ -13,10 +13,12 @@ def admin_login(username, password):
         return sub_set[0]
     return False
 
- 
+
 def admin_profile_section(method, user_id=0, f_name="", l_name="", email="", number=""):
     if method == 'POST':
-        return generators.execute_sql(sql_stmt.admin_profile_2.format(f_name=f_name, l_name=l_name, email=email, number=number, user_id=user_id), result_flag=False, commit_flag=True)[0]
+        return generators.execute_sql(
+            sql_stmt.admin_profile_2.format(f_name=f_name, l_name=l_name, email=email, number=number, user_id=user_id),
+            result_flag=False, commit_flag=True)[0]
     else:
         return generators.execute_sql(sql_stmt.admin_profile_1.format(user_id=user_id), result_flag=True)
 
