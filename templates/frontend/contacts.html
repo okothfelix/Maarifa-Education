@@ -1,0 +1,178 @@
+{% extends "base-index.html" %}
+
+{%block title %}Contacts{% endblock %}
+
+{% block content %}
+
+{% if contact_flag is true %}
+<div class="main">
+    <section class="hero-section ptb-100 gradient-overlay full-screen"
+             style="background: url('../static/frontend/img/contacts.jpg')no-repeat center center / cover">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-9 col-lg-7">
+                    <div class="error-content text-center text-white">
+                        <div class="notfound-404"><h2 class="text-white">Thank You</h2></div>
+                        <p class="lead">Your message has been received successfully. You will receive a response
+                            shortly.</p><a class="btn outline-white-btn" href="{{back}}">Go Back</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% else %}
+<div class="main">
+    <section class="hero-equal-height pt-165 pb-100"
+             style="background: url('img/hero-section-bg.svg')no-repeat center center / cover">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-12 col-lg-6">
+                    <div class="hero-slider-content z-index position-relative">
+                        <h1>Trusted EdTech Partner Everything in one
+                            Platform</h1>
+                        <p class="lead">Revolutionizing Education: EdTech Analytics Software Solutions Enhancing Student Learning Outcomes.</p>
+
+                        <div class="action-btns mt-3">
+                            <a href="#contacts" class="btn accent-solid-btn">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="hero-animation-img">
+                        <img src="{{url_for('static', filename='frontend/img/hero-animation-01.svg')}}" alt="hero"
+                             class="img-fluid d-none d-lg-block animation-two" width="230">
+                        <img src="{{url_for('static', filename='frontend/img/hero-animation-04.svg')}}" alt="hero"
+                             class="animation-one">
+                        <img src="{{url_for('static', filename='frontend/img/hero-animation-06.svg')}}" alt="hero"
+                             class="img-fluid d-none d-lg-block animation-four" width="200">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-us-promo pt-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card single-promo-card single-promo-hover text-center shadow-sm">
+                        <div class="card-body py-5">
+                            <div class="pb-2">
+                                <span class="ti-mobile icon-sm color-secondary"></span>
+                            </div>
+                            <div><h5 class="mb-0">Call Us</h5>
+                                <p class="text-muted mb-0">+254 738 873 127</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card single-promo-card single-promo-hover text-center shadow-sm">
+                        <div class="card-body py-5">
+                            <div class="pb-2">
+                                <span class="ti-location-pin icon-sm color-secondary"></span>
+                            </div>
+                            <div><h5 class="mb-0">Visit Us</h5>
+                                <p class="text-muted mb-0">1st Floor Chandaria Business Centre, Nairobi Kenya</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card single-promo-card single-promo-hover text-center shadow-sm">
+                        <div class="card-body py-5">
+                            <div class="pb-2">
+                                <span class="ti-email icon-sm color-secondary"></span>
+                            </div>
+                            <div><h5 class="mb-0">Mail Us</h5>
+                                <p class="text-muted mb-0">support@maarifaedu.co.ke</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card single-promo-card single-promo-hover text-center shadow-sm">
+                        <div class="card-body py-5">
+                            <div class="pb-2">
+                                <span class="ti-headphone-alt icon-sm color-secondary"></span>
+                            </div>
+                            <div><h5 class="mb-0">Live Chat</h5>
+                                <p class="text-muted mb-0">Chat with Us 24/7</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-us-section ptb-100" id="contacts">
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="col-md-6">
+                    <div class="contact-us-form gray-light-bg rounded p-5">
+                        <h4>Ready to get started?</h4>
+                        <form method="post" id="contactForm1" class="contact-us-form"
+                              novalidate="novalidate">
+                            <div class="form-row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="name" placeholder="Enter name"
+                                               required="required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" placeholder="Enter email"
+                                               required="required">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea name="message" id="message" class="form-control" rows="7" cols="25"
+                                                  placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mt-3">
+                                    <button type="submit" class="btn secondary-solid-btn" id="btnContactUs">
+                                        Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="contact-us-content">
+                        <h2>Where to find us</h2>
+                        <p class="lead">Seamlessly deliver edtech services all under one platform.</p>
+
+                        <a href="#directions" class="btn outline-btn align-items-center">Get Directions <span
+                                class="ti-arrow-right pl-2"></span></a>
+
+                        <hr class="my-5">
+
+                        <h5>Our Headquarters</h5>
+                        <address>
+                            1st Floor Chandaria Business Centre Nairobi Kenya.
+                            <br>
+                        </address>
+                        <br>
+                        <span>Phone: +254 738 873 127</span> <br>
+                        <span>Email: <a href="support@maarifaedu.co.ke" class="link-color">support@maarifaedu.co.ke</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="google-map" id="directions">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5324.634641449122!2d36.93520755146764!3d-1.1822996140667759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f3f78ac09fe1d%3A0x4ccb672abfe3ea40!2sChandaria%20Business%20Innovation%20And%20Incubation!5e0!3m2!1sen!2ske!4v1669706443905!5m2!1sen!2ske"
+                height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}
