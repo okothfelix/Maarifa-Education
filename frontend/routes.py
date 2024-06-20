@@ -94,7 +94,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        result_set = cbc_backend.user_login(username, password)
+        result_set = lower_learning_backend.user_login(username, password)
         if result_set:
             session['maarifa_education_id'] = maarifa_education_id = secrets.token_hex(10)
             sub_set = generators.session_update_section(maarifa_education_id, username, 1)
