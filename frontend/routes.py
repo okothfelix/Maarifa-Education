@@ -57,7 +57,7 @@ def contact():
         return render_template('frontend/contacts.html', contact_flag=contact_flag)
 
 
-@frontend_bp.routes('/register', methods=['GET', 'POST'])
+@frontend_bp.route('/register', methods=['GET', 'POST'])
 @decorators.user_login_checker
 @decorators.handle_errors
 def register():
@@ -68,7 +68,7 @@ def register():
         confirm_password = request.form['confirm-password']
         number = generators.phone_num_checker(request.form['number'])
         if password != confirm_password:
-            return redirect(url_for('error_log'))
+            return redirect(url_for('frontend.error_log'))
         result_set = web_frontend.user_registration(username, email, password, number)
         if result_set:
             return redirect(url_for('frontend.account_activation'))
@@ -132,15 +132,18 @@ def login():
         return render_template('frontend/login.html', register_flag=register_flag)
 
 
-@frontend_bp.route('/password-recovery', methods=['POST'])
+@frontend_bp.route('/password-recovery', methods=['GET', 'POST'])
 @decorators.handle_errors
 def forgot_password():
-    data = request.get_json()
-    email = data.get('email')
-    result_set = web_frontend.user_forgot_password_section(email)
-    if result_set:
-        return render_template('account-activation.html')
-    return redirect(url_for('error_log'))
+    if request.method == 'POST':
+        data = request.get_json()
+        email = data.get('email')
+        result_set = web_frontend.user_forgot_password_section(email)
+        if result_set:
+            return render_template('account-activation.html')
+        return redirect(url_for('frontend.error_log'))
+    else:
+        return render_template('frontend/forgot-pwd.html')
 
 
 @frontend_bp.route('/update-password/<activation_code>', methods=['GET', 'POST'])
