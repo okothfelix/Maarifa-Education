@@ -44,20 +44,20 @@ def lower_learning_institutions():
 @administrators_bp.route('/profile', methods=['GET', 'POST'])
 @decorators.admin_login_checker
 @decorators.handle_errors
-def user_profile():
+def admin_profile():
     cur_user = generators.cur_user_details(session['maarifa_education_id'])
     if request.method == 'POST':
         f_name = request.form['first-name']
         l_name = request.form['last-name']
         email = request.form['address']
         number = request.form['phone-number']
-        result_set = administrators_backend.user_profile_section('POST', cur_user[2], f_name, l_name, email, number)
+        result_set = administrators_backend.admin_profile_section('POST', cur_user[2], f_name, l_name, email, number)
         if result_set:
             session['update-flag'] = True
             return redirect(url_for('administrators.user_profile'))
         return redirect(url_for('frontend.error_log'))
     else:
-        result_set = administrators_backend.user_profile_section('GET', cur_user[2])
+        result_set = administrators_backend.admin_profile_section('GET', cur_user[2])
         update_flag = False
         if 'update-flag' in session:
             update_flag = session['update-flag']
@@ -68,15 +68,15 @@ def user_profile():
 @administrators_bp.route('/profile-password-update', methods=['POST'])
 @decorators.admin_login_checker
 @decorators.handle_errors
-def user_profile_password_update_section():
+def admin_profile_password_update_section():
     old_password = request.form['old-password']
     new_password = request.form['new-password']
     confirm_password = request.form['confirm-password']
 
     if new_password != confirm_password:
-        return redirect(url_for('error_log'))
+        return redirect(url_for('frontend.error_log'))
     cur_user = generators.cur_user_details(session['maarifa_education_id'])
-    result_set = cbc_backend.update_user_password_section(cur_user[2], old_password, new_password)
+    result_set = administrators_backend.update_admin_password_section(cur_user[2], old_password, new_password)
     if result_set:
         session['update-password-flag'] = True
         return redirect(url_for('administrators.user_profile'))

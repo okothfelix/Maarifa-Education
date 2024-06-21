@@ -1,0 +1,28 @@
+{% extends 'frontend/base-index.html' %}
+
+{% block content %}
+<section class="hero-section ptb-100 gradient-overlay full-screen"
+         style="background: url('{{url_for('static', filename='frontend/img/analytics-edtech.webp')}}')no-repeat center center / cover">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-9 col-lg-7">
+                <div class="hero-content-left text-white text-center">
+                    <h1 class="text-white">Thank You !</h1>
+                    <p class="lead">We will be in touch shortly. We're looking forward to your demo. If you have any questions prior to your demo feel free to give us a call.</p>
+                    <div class="mb-5">
+                        <h5 class="mb-0 text-white"><span class="ti-mobile mr-2 align-items-center"></span> +254 738 873 127</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-5 col-lg-5">
+                <div class="error-content text-center text-white">
+                    <a class="btn outline-white-btn" href="{{url_for('frontend.index')}}">Back</a></div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block footer %}{% endblock %}

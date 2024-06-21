@@ -508,22 +508,87 @@
         </div>
     </section>
 
+    <div class="client-section ptb-100">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <div class="owl-carousel owl-theme clients-carousel dot-indicator">
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/ku-logo.png')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/saf-logo.png')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/at-logo.png')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/zetech-uni.jpg')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/uzima-uni.jpeg')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/ku-logo.png')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/tknp-logo.jpeg')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/laikipia-uni.jpeg')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/mku-logo.jpg')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/zetech-uni.jpg')}}" alt="client logo"
+                                class="client-img"></div>
+                        <div class="item single-client"><img
+                                src="{{url_for('static', filename='frontend/img/uzima-uni.jpeg')}}" alt="client logo"
+                                class="client-img"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="call-to-action py-5">
         <div class="container">
             <div class="row justify-content-around align-items-center">
                 <div class="col-md-7">
                     <div class="subscribe-content">
-                        <h3 class="mb-1">Consulting Agency for Your Business</h3>
-                        <p>Rapidiously engage fully tested e-commerce with progressive architectures.</p>
+                        <h3 class="mb-1">Schedule a Pilot?</h3>
+                        <p>We transform education technology with powerful and adaptable digital solutions that are
+                            reliable, scalable and secure. Schedule a Demonstration for your institution now.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="action-btn text-lg-right text-sm-left">
-                        <a href="#" class="btn secondary-solid-btn">Contact With Us</a>
+                        <a href="{{url_for('frontend.contact')}}" class="btn secondary-solid-btn">Go For It</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </div>
+{% endblock %}
+
+{% block footer %}
+<footer class="footer-section">
+    <div class="footer-bottom gray-light-bg py-2">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md-5 col-lg-5">
+                    <p class="copyright-text pb-0 mb-0"><strong>
+                        Copyrights &copy;
+                        <script>
+                        document.write(new Date().getFullYear())
+                        </script>
+                        MaarifaEdu
+                    </strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 {% endblock %}

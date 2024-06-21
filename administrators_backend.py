@@ -9,8 +9,7 @@ def admin_login(username, password):
         return False
     p_word = generators.execute_sql(sql_stmt.user_login_2.format(password=password), result_flag=True)[1][0]
     if p_word == result_set[1][0]:
-        sub_set = generators.execute_sql(sql_stmt.admin_login_3.format(address=username), commit_flag=True)
-        return sub_set[0]
+        return generators.execute_sql(sql_stmt.admin_login_3.format(address=username), commit_flag=True)[0]
     return False
 
 
@@ -47,10 +46,10 @@ def add_admin(created_by, first_name, last_name, email, phone_number, create_fla
 def view_administrators():
     return generators.execute_sql(sql_stmt.view_administrators())
 
- 
+
 def admin_profile_section(method, user_id=0, f_name="", l_name="", email="", number=""):
     if method == 'POST':
-        return generators.execute_sql(sql_stmt.admin_profile_2.format(f_name=f_name, l_name=l_name, email=email, number=number, user_id=user_id), result_flag=False, commit_flag=True)[0]
+        return generators.execute_sql(sql_stmt.admin_profile_2.format(f_name=f_name, l_name=l_name, email=email, number=number, user_id=user_id), commit_flag=True)[0]
     else:
         return generators.execute_sql(sql_stmt.admin_profile_1.format(user_id=user_id), result_flag=True)
 

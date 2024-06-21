@@ -1,10 +1,9 @@
 import hashlib
 import generators
 
-# user registration statements
-user_register_1 = "Select user_id from Maarifa_Users where address = {address}"
-user_register_2 = "Insert into Maarifa_Users (username, address, phone_number, authentication_string, date_created, last_updated) values ({username}, {email}, {number}, {password}, {date_created}, {last_updated})"
-user_register_3 = "Create table Maarifa_Users (user_id int not null primary key auto_increment, username varchar(30) not null, address varchar(50) not null, phone_number varchar(20) not null, status tinyint not null default 0, date_created timestamp not null, last_updated timestamp not null, unique key users (address))"
+# user pilot registration statements
+user_pilot_register_1 = "Insert into Maarifa_Pilots (username, institution_name, level, address, phone_number, date_created) values ({username}, {institution_name}, {level}, {email}, {number}, {date_created})"
+user_pilot_register_2 = "Create table Maarifa_Pilots (pilot_id int not null primary key auto_increment, username varchar(30) not null, institution_name varchar(50) not null, address varchar(50) not null default '', phone_number varchar(20) not null, status tinyint not null default 0, date_created timestamp not null)"
 
 # user account activation statement
 activation_1 = "Select activation_code from Account_Activation where activation_code = {activation_code}"
